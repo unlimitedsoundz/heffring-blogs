@@ -4,15 +4,15 @@
         class="relative overflow-hidden transition-all duration-700 ease-in-out border-b border-black/5"
         style="background-color: #392d56;"
     >
-        <div class="container mx-auto flex flex-col lg:flex-row items-stretch gap-2 lg:gap-16 pt-0 md:pt-12 pb-12 lg:pb-0 h-auto lg:min-h-[600px] relative z-10">
+        <div class="container mx-auto flex flex-col lg:flex-row items-stretch gap-2 lg:gap-16 pt-0 md:pt-12 pb-12 lg:pb-0 h-auto lg:min-h-[300px] relative z-10">
             <!-- Left Content -->
-            <div class="lg:w-1/2 space-y-6 relative z-10 flex flex-col justify-center pt-2 lg:pt-0 px-4 md:px-0 py-12 lg:py-0 text-white">
+            <div class="lg:w-1/2 space-y-6 relative z-10 flex flex-col justify-center pt-2 lg:pt-0 px-4 md:px-0 py-8 lg:py-0 text-white">
                 <div class="space-y-4">
                     <h1 class="font-bold text-white text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight pt-8 lg:pt-0">
                         <%= post.title %>
                     </h1>
                     <p class="text-xl md:text-2xl text-white max-w-xl leading-relaxed">
-                        <%= post.excerpt || 'Read this insightful blog post from Kestora University student ambassadors.' %>
+                        <%= post.excerpt || 'Read this insightful blog post from Heffring University student ambassadors.' %>
                     </p>
                     <p class="text-sm text-neutral-300">
                         Published on <%= formatToDDMMYYYY(post.publishDate) %>
@@ -21,11 +21,11 @@
             </div>
 
             <!-- Right Image -->
-            <div class="lg:w-1/2 w-full relative z-20 order-first lg:order-none h-[300px] sm:h-[400px] lg:h-auto">
+            <div class="lg:w-1/2 w-full relative z-20 order-first lg:order-none h-[250px] sm:h-[300px] lg:h-auto">
                 <div class="h-full w-full relative">
                     <div class="relative w-full h-full bg-neutral-100 overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-black/10 after:mix-blend-multiply">
                         <img
-                            src="<%= post.imageUrl || '/images/logo-kestora.png' %>"
+                            src="<%= post.imageUrl || '/images/1775817359452-019d76f5-cb93-7e9a-8515-61a71c69fa56.png' %>"
                             alt="<%= post.title %>"
                             class="object-cover w-full h-full object-center"
                         />

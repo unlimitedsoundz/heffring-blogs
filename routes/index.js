@@ -4,6 +4,14 @@ const router = express.Router();
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+  console.error('FATAL: Missing Supabase env vars. Check Hostinger env panel.');
+  console.error('SUPABASE_URL present:', !!supabaseUrl);
+  console.error('SUPABASE_ANON_KEY present:', !!supabaseKey);
+  process.exit(1);
+}
+
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Helper function to format date
@@ -133,8 +141,8 @@ router.get('/', async (req, res) => {
     });
 
     const fullPage = await ejs.renderFile(path.join(__dirname, '../views/layouts/main.ejs'), {
-      title: category ? `Blog - ${category} | Penkka Blog` : (search ? `Search: ${search} | Penkka Blog` : 'Penkka Blog'),
-      metaDescription: category ? `Read articles about ${category} from Penkka University student ambassadors.` : 'Stories and insights from Penkka University student ambassadors sharing their experiences studying and living in Finland.',
+      title: category ? `Blog - ${category} | Heffring Blog` : (search ? `Search: ${search} | Heffring Blog` : 'Heffring Blog'),
+      metaDescription: category ? `Read articles about ${category} from Heffring University student ambassadors.` : 'Stories and insights from Heffring University student ambassadors sharing their experiences studying and living in Finland.',
       ogImage: null,
       body: blogContent
     });
@@ -151,7 +159,7 @@ router.get('/', async (req, res) => {
     });
 
     const fullPage = await ejs.renderFile(path.join(__dirname, '../views/layouts/main.ejs'), {
-      title: 'Error | Penkka Blog',
+      title: 'Error | Heffring Blog',
       body: errorContent
     });
 
@@ -181,7 +189,7 @@ router.get('/:slug', async (req, res) => {
       });
 
       const fullPage = await ejs.renderFile(path.join(__dirname, '../views/layouts/main.ejs'), {
-        title: 'Post Not Found | Penkka Blog',
+        title: 'Post Not Found | Heffring Blog',
         body: errorContent
       });
 
@@ -231,7 +239,7 @@ router.get('/:slug', async (req, res) => {
     });
 
     const fullPage = await ejs.renderFile(path.join(__dirname, '../views/layouts/main.ejs'), {
-      title: post.meta_title || `${post.title} | Penkka Blog`,
+      title: post.meta_title || `${post.title} | Heffring Blog`,
       metaDescription: post.meta_description || post.excerpt,
       ogImage: post.og_image || post.imageUrl,
       body: blogContent
@@ -249,7 +257,7 @@ router.get('/:slug', async (req, res) => {
     });
 
     const fullPage = await ejs.renderFile(path.join(__dirname, '../views/layouts/main.ejs'), {
-      title: 'Error | Penkka Blog',
+      title: 'Error | Heffring Blog',
       body: errorContent
     });
 
